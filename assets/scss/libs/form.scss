@@ -1,0 +1,254 @@
+.c-field {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  line-height: 1.5;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &__label {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100px;
+  }
+  &__wrap {
+    box-sizing: border-box;
+    flex: 1;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    outline: none;
+  }
+  &__icon {
+    height: 1.5em;
+    cursor: pointer;
+  }
+  &__unit {
+    box-sizing: border-box;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 100%;
+    color: inherit;
+    font-family: inherit;
+    flex: 1 1 1px;
+    width: 100%;
+    align-self: stretch;
+  }
+
+  &__error {
+    width: 100%;
+    line-height: 1.2;
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #936f8e;
+    margin-top: 5px;
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      display: inline-block;
+      height: 1.1em;
+      width: 1.1em;
+      margin-right: 5px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &--required {
+    .c-field__label::before {
+      content: '*';
+      color: red;
+    }
+  }
+}
+
+// Don't use line-height to make vertical alignment.
+.c-textarea {
+  align-items: flex-start;
+  line-height: inherit;
+  .c-field__label {
+    padding: 5px 0; // use vertical padding to make alignment with textarea
+  }
+  .c-field__wrap {
+    padding: 0;
+    align-items: flex-start;
+  }
+  .c-field__unit {
+    padding: 5px;
+    line-height: normal;
+    align-self: stretch;
+    resize: none;
+  }
+}
+
+.c-select {
+  .c-field__wrap {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    min-height: 1.5em;
+  }
+  .c-field__unit {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+  &__drop-icon {
+    background-image: url('~@/assets/scss/libs/mi_expand_more.png');
+    width: 11px;
+    height: 11px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s;
+    transform: rotateZ(180deg);
+    transform-origin: center;
+    &--show {
+      transform: rotateZ(0deg);
+    }
+  }
+  &__drop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: gray;
+    z-index: 200;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__itm {
+      color: #fff;
+      box-sizing: border-box;
+      height: 28px;
+      line-height: 18px;
+      font-size: 16px;
+      padding: 5px 0 5px 12px;
+      &:hover {
+        color: #fff;
+        background-color: #cecdcd;
+      }
+    }
+  }
+}
+
+.c-date {
+  .vdp-datepicker {
+    font-size: 100%;
+    width: 100%;
+    align-self: stretch;
+    & > div:first-child {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .vdp-datepicker * {
+    box-sizing: border-box !important;
+  }
+}
+
+// ----------- checkbox & radio ----------
+.c-field__itm-wrap {
+  width: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.c-field {
+  &__checkbox-check {
+    border: 1px solid #000;
+    display: inline-flex;
+    width: 1em;
+    height: 1em;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    &__icon {
+      opacity: 0;
+      fill: white;
+    }
+  }
+  &__itm-wrap--checked {
+    .c-field__checkbox-check {
+      background-color: #ff6b00;
+
+      &__icon {
+        opacity: 1;
+        color: white;
+      }
+    }
+    .c-field__checkbox-label {
+      color: #ff6b00;
+    }
+  }
+}
+.c-field {
+  &__radio-check {
+    border: 1px solid #000;
+    background-color: #fff;
+    display: inline-flex;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    &::before {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 50%;
+      transform: scale(0);
+      transition: transform 0.1s;
+      border-radius: 100%;
+      background-color: #155493;
+      opacity: 0;
+    }
+  }
+  &__itm-wrap--checked {
+    .c-field__radio-check {
+      border: 1px solid #155493;
+
+      &::before {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// .c-submit {
+//   &:extend(.c-btn all);
+//   display: block;
+//   background-color: #155493;
+//   line-height: 50px;
+//   font-size: 24px;
+//   color: #fff;
+//   border-radius: 5px;
+//   width: 100%;
+//   margin: auto;
+//   text-align: center;
+//   &:focus {
+//     border: 1px solid #fff;
+//   }
+// }

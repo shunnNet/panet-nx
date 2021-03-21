@@ -1,0 +1,99 @@
+.card {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  height: 100%; // make each card's height equal, with 彈性 content.
+  border-radius: 10px;
+  line-height: 1.5;
+  .card__imageContainer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card__image,
+  .card__imageFilter {
+    box-sizing: content-box;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    .card__image,
+    .card__imageFilter {
+      transform: scale(1.2);
+    }
+  }
+  // @include touch-device {
+  //   &:hover {
+  //     .card__image,
+  //     .card__imageFilter {
+  //       transform: scale(1);
+  //     }
+  //   }
+  // }
+  .card__image {
+    position: absolute;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 0;
+    padding-bottom: 80%;
+  }
+  .card__imageFilter {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: opacity(0.5);
+    padding-bottom: 80%;
+  }
+
+  .card__content {
+    padding: 20px 20px;
+    font-size: 1rem;
+    line-height: 2em;
+    flex: 1 0 0;
+    font-weight: bold;
+  }
+  .card__head {
+    padding: 10px 0;
+    .card__title {
+      display: inline-block;
+      font-size: 1.25em;
+      font-weight: bolder;
+      padding-right: 10px;
+      margin: 0;
+    }
+    .card__head__sub {
+      color: gray;
+      // @include mobile {
+      //   display: block;
+      // }
+    }
+  }
+  
+  .card__content__subject {
+    vertical-align: top;
+    display: inline-block;
+    width: 100px;
+  }
+
+  .card__foot {
+    font-size: 0.9em;
+    padding: 10px 20px;
+    border-top: 1px solid gray;
+    color: gray;
+
+    .card__foot__content {
+      display: inline-block;
+      padding-right: 10px;
+      .card__foot__icon {
+        vertical-align: text-top;
+        padding-right: 5px;
+      }
+    }
+  }
+}

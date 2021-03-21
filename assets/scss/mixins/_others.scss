@@ -1,0 +1,53 @@
+%layoutBoxBase {
+  width: 100%;
+  margin: auto;
+}
+
+%textEllipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+%spreadBorder__horizontal {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s;
+  transform: scaleX(0);
+  transform-origin: center;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+%spreadBorder__vertical {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s;
+  transform: scaleY(0);
+  transform-origin: center;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+
+@mixin hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}

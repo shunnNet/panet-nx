@@ -1,0 +1,27 @@
+.c-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-col {
+  box-sizing: border-box;
+  min-width: 0;
+  p {
+    background: red;
+    margin: 0;
+  }
+}
+
+$maxCol: 24;
+$breakpoints: sm, md, lg;
+
+@for $i from 1 through $maxCol {
+  .c-col-#{$i} {
+    width: ($i / $maxCol * 100%);
+  }
+  @each $bp in $breakpoints {
+    .c-col-#{$i}-#{$bp} {
+      width: ($i / $maxCol * 100%);
+    }
+  }
+}

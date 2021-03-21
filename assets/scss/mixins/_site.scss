@@ -1,0 +1,48 @@
+%box-full {
+  @extend %layoutBoxBase;
+  max-width: $container-width-full;
+}
+
+%box-lg {
+  @extend %layoutBoxBase;
+  max-width: $container-width-lg;
+}
+%box-md {
+  @extend %layoutBoxBase;
+  max-width: $container-width-md;
+}
+%useBlockTheme {
+  border-radius: $global-block-radius;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+%titleBox {
+  color: #000;
+  // &-title {
+  //   font-size: 1.5em;
+  // }
+  // &-sub {
+  //   font-size: 1em;
+  // }
+}
+
+%blockIcon {
+  font-size: 1em;
+  vertical-align: bottom;
+}
+
+%blockSubject {
+  @extend %reset-text;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+%blockTitle {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+%blockTitleSub {
+  font-size: 0.8em;
+  color: gray;
+}

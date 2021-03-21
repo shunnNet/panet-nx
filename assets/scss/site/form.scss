@@ -1,0 +1,72 @@
+.c-field {
+  &__wrap {
+    position: relative;
+    height: 28px;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+  &__error {
+    margin-top: 0;
+    padding: 5px 10px;
+    color: #000;
+    background-color: $red-500;
+  }
+}
+.c-field--valid{
+  color: $success;
+  .c-field{
+    &__wrap {
+      border-bottom: 1px solid $success;
+    }
+  }
+}
+.c-textarea {
+  .c-field__wrap {
+    height: 132px;
+    border: 1px solid #000;
+  }
+}
+
+
+.c-input {
+  .c-field__wrap {
+    transition: border-color .2s;
+    &::after {
+      @extend %spreadBorder__horizontal;
+      border-top: none;
+      border-bottom: 2px solid $primary;
+    }
+  }
+}
+
+.c-field--focus.c-input {
+  .c-field__wrap {
+    border-color: transparent;
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.c-submit {
+  @extend %reset-btn;
+  display: block;
+  color: #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 100%;
+  cursor: pointer;
+  background-color: $main;
+  margin: 0 auto;
+  width: 200px;
+  &:hover {
+    background-color: lighten($main, 5%);
+  }
+  &:focus {
+    color: #fff;
+    background-color: $orange;
+  }
+  &:disabled {
+    background-color: $gray-400;
+  }
+}

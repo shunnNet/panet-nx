@@ -1,0 +1,57 @@
+// Color ----
+
+$gray-200: #f2f2f2;
+$gray-300: lightgray;
+$gray-400: #b2b2b2;
+$gray-500: #adb5bd;
+$gray-800: gray;
+$gray-900: #2f2f2f;
+$black: #000;
+
+$red-800: #ad0a1a;
+$red-700: #ff0019;
+$red-500: #fa5869;
+$red-300: #fe586a;
+$red-200: #eb9da5;
+
+$orange: #ff5722;
+$orange-500: orange;
+
+$blue-200: #92beff;
+$blue-700: #3989ff;
+$blue-800: #0d6efd;
+// $green      : green;
+$green-400: #07aa07;
+$green-200: #6ed786;
+
+$deep: #000000;
+$main: #FCA311;
+$contrast: #14213D;
+$sub: #E5E5E5;
+$light: #FFFFFF;
+
+$lightSub: $gray-400;
+$darkSub: $gray-900;
+$green: #00988e;
+$yellow: #fcb643;
+$primary: #ff5722;
+$alert: $red-800;
+$alert-sub: $red-200;
+$success: $green;
+$info: $blue-800;
+$darken: $gray-400;
+$dark: #242526;
+
+
+$font-family-base : -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial,sans-serif;
+$global-block-radius: 10px;
+
+// Body  ----
+$body-bg: $sub;
+$body-color: $black;
+$footer-bg: $gray-400;
+$footer-color: $gray-900;
+
+$container-width-full: 100%;
+$container-width-lg: 1200px;
+$container-width-md: 768px;

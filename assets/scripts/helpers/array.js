@@ -43,6 +43,23 @@ export const fillListToTimesWithMeta = (list = [], times = 3, fillBy = {}) => {
 
   return [...protoWithMeta, ...fillWithMeta]
 }
+export function shallowCopy (list){
+  return list.map(item => item)
+}
+
+export const random = (list= [], length=0) => {
+  const result = []
+  
+  if (list.length) {
+    const listCopy = shallowCopy(list)
+    while(listCopy.length && length){
+      const index = Math.floor(Math.random() * (listCopy.length - 1))
+      result.push(listCopy.splice(index,1)[0])
+      length--
+    }
+  }
+  return result
+}
 
 
 module.exports = {
@@ -50,5 +67,7 @@ module.exports = {
   getRotateNext,
   getRotateNextIndex,
   fillListToTimes,
-  fillListToTimesWithMeta
+  fillListToTimesWithMeta,
+  shallowCopy,
+  random
 }

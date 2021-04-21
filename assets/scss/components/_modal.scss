@@ -1,0 +1,18 @@
+.modal {
+  text-align: left;
+  max-width: 350px;
+  max-height: 300px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  &-header {
+  }
+  &-content {
+    flex: 1;
+  }
+  &-footer {
+  }
+}

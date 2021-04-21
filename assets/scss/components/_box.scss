@@ -1,0 +1,57 @@
+@use "sass:list";
+
+%layoutBoxBase {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $box-space;
+}
+
+// @debug $bp-list;
+// @debug length($bp-list);
+// @debug list.nth($bp-list, 1);
+// @debug list.index($bp-list, xxl);
+// @debug append($bp-list, fluid);
+$bp-list: (xxl, xl, lg, md, sm);
+
+.box {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $box-space;
+  max-width: map-get($box-width, $key: xxl);
+  @each $size, $width in $breakpoints {
+    @media screen and (max-width: $width) {
+      max-width: map-get($box-width, $size);
+    }
+  }
+}
+
+@each $size, $width in $box-width {
+  .box-#{$size} {
+    width: 100%;
+    max-width: $width;
+    margin: 0 auto;
+    padding: 0 $box-space;
+  }
+
+  $from: list.index($bp-list, $size) + 1;
+
+  @if $from <= length($bp-list) {
+    @for $i from $from through length($bp-list) {
+      $targetSize: list.nth($bp-list, $i);
+      $targetWidth: map-get(
+        $map: $box-width,
+        $key: $targetSize,
+      );
+      $bp: map-get($breakpoints, $targetSize);
+
+      @media screen and (max-width: $bp) {
+        .box-#{$size} {
+          max-width: $targetWidth;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 $box-space;
+        }
+      }
+    }
+  }
+}

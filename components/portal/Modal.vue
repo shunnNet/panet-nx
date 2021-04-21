@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import modalControl from "./modalControl.js";
+import modalControl from './modalControl.js'
 export default {
   props: {
     value: {},
@@ -22,36 +22,35 @@ export default {
   data() {
     return {
       zIndex: 99999,
-    };
+    }
   },
   watch: {
     value(now) {
       if (now === true) {
-        console.log(modalControl.modalList.length, this._uid);
+        console.log(modalControl.modalList.length, this._uid)
         const zIndex = modalControl.modalList.length
           ? modalControl.modalList.slice(-1)[0].zIndex + 1
-          : this.zIndex;
+          : this.zIndex
 
-        modalControl.addModal({ id: this._uid, zIndex });
-        this.zIndex = zIndex;
+        modalControl.addModal({ id: this._uid, zIndex })
+        this.zIndex = zIndex
       }
     },
   },
   updated() {
-    console.log("update", this._uid, modalControl.modalList.length);
     if (this.value === false) {
-      modalControl.removeModal(this._uid);
+      modalControl.removeModal(this._uid)
     }
   },
 
   methods: {
     close($event) {
       if ($event.currentTarget === $event.target) {
-        this.$emit("input", false);
+        this.$emit('input', false)
       }
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
@@ -64,11 +63,14 @@ export default {
   top: 0;
   left: 0;
   opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: table;
+  padding: 18px;
 
   &__content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
     transform-origin: center;
   }
 }
@@ -77,21 +79,23 @@ export default {
   &-leave-active {
     transition: background-color 0.4s !important;
     .lb-modal__content {
-      transition: transform 0.2s;
+      transition: transform 0.4s, opacity 0.4s;
     }
   }
   &-enter,
   &-leave-to {
     background-color: transparent !important;
     .lb-modal__content {
-      transform: scaleY(0);
+      opacity: 0;
+      transform: translateY(-100px);
     }
   }
   &-enter-to,
   &-leave {
     background-color: rgba(0, 0, 0, 0.6);
     .lb-modal__content {
-      transform: scaleY(1);
+      opacity: 1;
+      transform: translateY(0px);
     }
   }
   // &-leave,

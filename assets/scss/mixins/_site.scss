@@ -1,20 +1,7 @@
-%box-full {
-  @extend %layoutBoxBase;
-  max-width: $container-width-full;
-}
 
-%box-lg {
-  @extend %layoutBoxBase;
-  max-width: $container-width-lg;
-}
-%box-md {
-  @extend %layoutBoxBase;
-  max-width: $container-width-md;
-}
 %useBlockTheme {
   border-radius: $global-block-radius;
   background-color: #fff;
-  border: 1px solid #000;
 }
 
 %titleBox {

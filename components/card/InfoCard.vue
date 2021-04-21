@@ -2,8 +2,8 @@
   <article class="card">
     <ScaleImg class="card-imgBox" :url="user.photo" v-lazy="user.photo" />
     <header class="card-header">
-      <IconText class="card-title" tag="h3" icon="person">使用者A</IconText>
-      <span class="card-subTitle"> 魔術師 </span>
+      <IconText class="card-title" tag="h3" icon="person">{{ user.name }}</IconText>
+      <span class="card-subTitle"> {{ user.occupation.name }} </span>
     </header>
 
     <section class="card-body">
@@ -40,6 +40,15 @@ export default {
   props: {
     user: {
       type: Object,
+      default: () => ({
+        name: "user A",
+        occupation: "Administrator",
+        photo: '/5e26de61693a100024f5575b.jpg',
+        areas: [],
+        skills: [],
+        medias: [],
+        experiences: [],
+      }),
     },
   },
   components: {
@@ -77,6 +86,7 @@ $card-block-padding: ($padding / 2) $padding;
     display: inline-flex;
     margin-right: 5px;
     margin-left: 5px;
+    align-items: center;
     @extend %reset-text;
     @extend %blockTitle;
   }

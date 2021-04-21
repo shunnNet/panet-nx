@@ -12,14 +12,24 @@
     background-color: $red-500;
   }
 }
-.c-field--valid{
-  color: $success;
-  .c-field{
+.c-field--valid {
+  color: map-get($theme, success);
+  .c-field {
     &__wrap {
-      border-bottom: 1px solid $success;
+      border-bottom: 1px solid map-get($theme, success);
     }
   }
 }
+
+.c-field--dark {
+  .c-field{
+    &__wrap {
+      color: color(sub);
+      border-color: color(sub);
+    }
+  }
+}
+
 .c-textarea {
   .c-field__wrap {
     height: 132px;
@@ -27,14 +37,13 @@
   }
 }
 
-
 .c-input {
   .c-field__wrap {
-    transition: border-color .2s;
+    transition: border-color 0.2s;
     &::after {
       @extend %spreadBorder__horizontal;
       border-top: none;
-      border-bottom: 2px solid $primary;
+      border-bottom: 2px solid map-get($theme, primary);
     }
   }
 }
@@ -56,11 +65,11 @@
   padding: 5px 10px;
   width: 100%;
   cursor: pointer;
-  background-color: $main;
+  background-color: map-get($theme, primary);
   margin: 0 auto;
   width: 200px;
   &:hover {
-    background-color: lighten($main, 5%);
+    background-color: lighten(map-get($theme, primary), 5%);
   }
   &:focus {
     color: #fff;

@@ -1,3 +1,4 @@
+import morgan from 'morgan'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,7 +32,10 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
-
+  serverMiddleware: [
+    morgan('tiny'),
+    { path: '/api', handler: '@/server/index.js' },
+  ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -63,6 +67,7 @@ export default {
       },
     },
   },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
@@ -72,7 +77,10 @@ export default {
     },
     transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
-      // ...
+      // if (ctx.isClient) {
+      //   console.log();
+      //   fs.writeFileSync("./configuration.json", JSON.stringify(config))
+      // }
     },
   },
 }

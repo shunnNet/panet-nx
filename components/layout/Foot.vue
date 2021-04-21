@@ -56,10 +56,10 @@
 </template>
 
 <script>
-import Logo from '@/assets/images/logo.svg?inline'
-import Facebook from '@/assets/images/Facebook.svg?inline'
-import Email from '@/assets/images/Email.svg?inline'
-import Twitter from '@/assets/images/Twitter.svg?inline'
+// import Logo from '@/assets/images/logo.svg?inline'
+// import Facebook from '@/assets/images/Facebook.svg?inline'
+// import Email from '@/assets/images/Email.svg?inline'
+// import Twitter from '@/assets/images/Twitter.svg?inline'
 export default {
   data() {
     return {
@@ -89,10 +89,10 @@ export default {
     }
   },
   components: {
-    Logo,
-    Facebook,
-    Email,
-    Twitter,
+    // Logo,
+    // Facebook,
+    // Email,
+    // Twitter,
   },
 }
 </script>

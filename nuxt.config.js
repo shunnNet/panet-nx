@@ -1,4 +1,5 @@
 import morgan from 'morgan'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -50,7 +51,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+  },
 
   auth: {
     strategies: {

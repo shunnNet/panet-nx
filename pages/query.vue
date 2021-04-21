@@ -22,7 +22,7 @@
         :key="item._id"
         class="pgQuery-link"
         :to="{
-          name: 'User-id-info',
+          name: 'user-id-info',
           params: { id: item._id },
         }"
       >

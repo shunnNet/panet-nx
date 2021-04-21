@@ -20,6 +20,7 @@ export default {
   plugins: [
     '@@/plugins/vee-validate.js',
     { src: '@@/plugins/vuejs-datepicker.js', mode: 'client' },
+    { src: '@@/plugins/svg.js' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

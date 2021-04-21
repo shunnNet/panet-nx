@@ -24,6 +24,7 @@ export default {
   plugins: [
     '@@/plugins/vee-validate.js',
     { src: '@@/plugins/vuejs-datepicker.js', mode: 'client' },
+    { src: '@@/plugins/lazy.js', mode: 'client' },
     { src: '@@/plugins/svg.js' },
   ],
 

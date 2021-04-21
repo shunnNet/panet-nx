@@ -1,7 +1,7 @@
 <template>
   <div
     class="c-field c-select"
-    :class="{ ...stateClass, ...focusClass, ...validateClass }"
+    :class="{ ...stateClass, ...focusClass, ...validateClass, ...theme }"
     tabIndex="-1"
     @blur="handleShowEvent(false)"
     @click="handleShowEvent(!show)"
@@ -13,11 +13,10 @@
     <div class="c-field__wrap" tabIndex="0" ref="unit">
       <!-- <input class="c-field__unit" :value="showLabel" readonly /> -->
       <div class="c-field__unit">{{ showLabel }}</div>
-      <div
+      <Arrow
         class="c-select__drop-icon"
         :class="{ 'c-select__drop-icon--show': !show }"
-        :src="`//sgxplay99.com/EditionImg/Lambor1.0/images/web/Member/icon_down.png`"
-      ></div>
+      />
       <transition-slide :min="0" :max="dropMaxHeight">
         <ul class="c-select__drop" v-show="show">
           <li
@@ -40,11 +39,13 @@
 </template>
 
 <script>
+
 import baseUtility from './mixins/baseUtility.js'
 import validatable from './mixins/validatable.js'
 import focusable from './mixins/focusable.js'
 import TransitionSlide from '../animation/TransitionSlide.vue'
 import stateful from './mixins/stateful.js'
+import theme from "./mixins/theme.js"
 
 export default {
   $_veeValidate: {
@@ -56,7 +57,7 @@ export default {
     },
   },
   name: 'c-select',
-  mixins: [baseUtility, stateful, focusable, validatable],
+  mixins: [baseUtility, stateful, focusable, validatable, theme],
   model: {
     props: 'value',
     event: 'input',

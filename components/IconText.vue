@@ -18,12 +18,12 @@ export default {
   },
   functional: true,
   render(h, context) {
-    const tag = context.props.tag
-    const Icon = h("MIcon", {
-      props: {
-        icon: context.props.icon,
-      },
-      class: [context.props.iconClass],
+    const {data, props} = context
+    
+    const tag = props.tag
+    const Icon = h(props.icon, {
+
+      class: ["iconText-icon" ,props.iconClass],
     });
 
     return h(
@@ -31,7 +31,7 @@ export default {
       {
         class: functional.getClasses(context, ["iconText"]),
         style: functional.getStyles(context),
-        directives: context.data.directives
+        directives: data.directives
       },
       [Icon, ...context.slots().default]
     );
@@ -42,10 +42,12 @@ export default {
 <style lang="scss">
 .iconText {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  .material-icons {
-    font-size: 1em;
-    margin-right: 2px;
+  &-icon {
+    max-height: 1.5em;
+    max-width: 1.5em;
+    margin-right: 5px;
   }
 }
 </style>

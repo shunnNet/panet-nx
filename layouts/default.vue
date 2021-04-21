@@ -1,21 +1,29 @@
 <template>
   <div class="main">
-    <Navbar class="main-nav" />
+    <Navbar class="main-nav" :dark="dark" />
     <main class="main-content">
-      <Nuxt />
+      <Nuxt keep-alive :keep-alive-props="{include: 'Query'}" />
     </main>
-    <footer class="main-footer">
-      I am footer
-    </footer>
+    <Foot class="main-footer" />
+    <PortalTarget name="global" />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/layout/Navbar.vue"
+import Navbar from '@/components/layout/Navbar.vue'
+import Foot from '@/components/layout/Foot.vue'
+import PortalTarget from '@/components/portal/PortalTarget.vue';
 export default {
   components: {
-    Navbar
-  }
+    Navbar,
+    Foot,
+    PortalTarget
+  },
+  computed: {
+    dark() {
+      return this.$route.name === 'index' ? true : false
+    },
+  },
 }
 </script>
 
@@ -26,10 +34,17 @@ export default {
   flex-direction: column;
 
   &-nav {
-    background-color: #fff;
+    position: sticky;
+    top: 0;
     width: 100%;
+    z-index: 9999;
+
+    &--index {
+      background-color: transparent;
+    }
   }
   &-content {
+    padding: 20px 0;
     flex: 1;
     width: 100%;
   }

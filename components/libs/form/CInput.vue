@@ -1,5 +1,5 @@
 <template>
-  <div class="c-field c-input" :class="{ ...stateClass, ...focusClass, ...validateClass }">
+  <div class="c-field c-input" :class="{ ...stateClass, ...focusClass, ...validateClass, ...theme }">
     <label class="c-field__label" v-if="label" :for="`input-${_uid}`">
       {{ label }}
     </label>
@@ -35,10 +35,11 @@ import baseUtility from "./mixins/baseUtility.js"
 import validatable from "./mixins/validatable.js"
 import focusable from "./mixins/focusable.js"
 import stateful from "./mixins/stateful.js"
+import theme from "./mixins/theme.js"
 
 export default {
   name: "c-input",
-  mixins: [baseUtility, focusable, stateful, validatable],
+  mixins: [baseUtility, focusable, stateful, validatable, theme],
   props: {
     type: {
       type: String,

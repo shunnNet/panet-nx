@@ -1,0 +1,70 @@
+%btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  padding: 5px 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn {
+  @extend %reset-btn;
+  @extend %btn;
+}
+
+@each $name, $color in $theme {
+  .btn--#{$name} {
+    box-shadow: $global-shadow;
+    background-color: $color;
+    color: #000;
+    &:hover {
+      background-color: lighten($color, 5%);
+    }
+    &:active {
+      opacity: 0.8;
+    }
+    &:disabled {
+      opacity: 0.2;
+    }
+  }
+  .btn--#{$name}-line {
+    border: 1px solid $color;
+    background-color: transparent;
+    color: $color;
+
+    &:hover {
+      background-color: $color;
+      @if $name != light {
+        color: color(light);
+      } @else {
+        color: color(base);
+      }
+    }
+    &:active {
+      background-color: lighten($color, 10%);
+      color: map-get($theme, light);
+    }
+    &:disabled {
+      opacity: 0.2;
+    }
+  }
+}
+
+.btn--transparent {
+  color: #000;
+  &:hover {
+    background-color: $gray-200;
+  }
+  // &:focus {
+  //   background-color: $orange;
+  //   color: #fff;
+  // }
+  &:disabled {
+    opacity: 0.2;
+  }
+}

@@ -29,6 +29,6 @@
   color: $green-200;
   &:hover {
     border-color: $green-200;
-    color: $contrast;
+    color: map-get($theme, contrast);
   }
 }

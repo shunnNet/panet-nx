@@ -5,7 +5,12 @@
 @import 'libs/index.scss';
 
 // components (site)
+@import './components/list';
+@import './components/block';
+@import './components/box';
+@import './components/modal';
 @import './site/form.scss';
+@import './site/btn.scss';
 
 // helpers
 @import 'helpers';

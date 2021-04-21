@@ -1,0 +1,38 @@
+.list {
+  @extend %reset-ul;
+}
+
+.list--horizon {
+  display: flex;
+}
+
+.list--disc {
+  list-style-type: disc;
+  padding-left: 30px;
+}
+
+.list--disc.list--horizon {
+  padding-left: 0;
+  .list {
+    &-item {
+      margin-left: 30px;
+    }
+  }
+}
+
+.list--pipe {
+  display: flex;
+  .list {
+    &-item {
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: 1px solid #000;
+    }
+    &-item:first-child {
+      padding-left: 0;
+    }
+    &-item:last-child {
+      border-right: unset;
+    }
+  }
+}

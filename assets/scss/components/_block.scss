@@ -1,0 +1,49 @@
+.block {
+  @extend %useBlockTheme;
+  padding: 20px;
+  box-shadow: $global-shadow;
+  &-icon {
+    @extend %blockIcon;
+  }
+
+  &-header {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  &-title {
+    @extend %blockTitle;
+    @extend %reset-text;
+  }
+  &-titleSub {
+    @extend %blockTitleSub;
+    @extend %reset-text;
+    margin-left: 10px;
+  }
+  &-subject {
+    // display: ;
+    align-items: center;
+    // margin-bottom: 5px;
+    @extend %blockSubject;
+    @extend %reset-text;
+  }
+
+  &-text {
+    @extend %reset-text;
+    font-weight: normal;
+  }
+  &-section {
+    margin-bottom: 10px;
+  }
+  &-footer {
+    display: flex;
+    padding-top: 5px;
+    border-top: 1px solid color(darkSub);
+    font-size: 0.9em;
+    color: color(darkSub);
+  }
+  &-footerItem {
+    margin-right: 8px;
+  }
+}

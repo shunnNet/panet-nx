@@ -103,11 +103,8 @@
     align-items: center;
   }
   &__drop-icon {
-    background-image: url('~@/assets/scss/libs/mi_expand_more.png');
-    width: 11px;
-    height: 11px;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 18px;
+    height: 18px;
     transition: transform 0.2s;
     transform: rotateZ(180deg);
     transform-origin: center;

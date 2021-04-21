@@ -1,18 +1,43 @@
-.box-full {
-  @extend %layoutBoxBase;
-  max-width: $container-width-full;
+
+.reset-a {
+  @extend %reset-a;
 }
 
-.box-lg {
-  @extend %layoutBoxBase;
-  max-width: $container-width-lg;
+.linkImage {
+  cursor: pointer;
+  &:hover {
+    filter: brightness(0.8);
+  }
+  &:active {
+    opacity: 0.8;
+  }
 }
-.box-md {
-  @extend %layoutBoxBase;
-  max-width: $container-width-md;
+
+.link {
+  color: $link-color;
+  &:visited {
+    color: inherit;
+  }
+  &:hover {
+    color: $link-hover-color;
+    font-weight: bold;
+  }
+
+  &:active {
+    color: $link-active-color;
+  }
 }
+
+.reset-btn {
+  @extend %reset-btn;
+}
+
 .text-ellipsis {
   @extend %textEllipsis;
+}
+
+.img--fluid {
+  @extend %img--fluid;
 }
 
 .d-none {

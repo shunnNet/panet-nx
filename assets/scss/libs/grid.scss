@@ -12,16 +12,16 @@
   }
 }
 
-$maxCol: 24;
-$breakpoints: sm, md, lg;
+// $maxCol: 24;
+// $breakpoints: sm, md, lg;
 
-@for $i from 1 through $maxCol {
-  .c-col-#{$i} {
-    width: ($i / $maxCol * 100%);
-  }
-  @each $bp in $breakpoints {
-    .c-col-#{$i}-#{$bp} {
-      width: ($i / $maxCol * 100%);
-    }
-  }
-}
+// @for $i from 1 through $maxCol {
+//   .c-col-#{$i} {
+//     width: ($i / $maxCol * 100%);
+//   }
+//   @each $bp in $breakpoints {
+//     .c-col-#{$i}-#{$bp} {
+//       width: ($i / $maxCol * 100%);
+//     }
+//   }
+// }

@@ -2,7 +2,7 @@
   <div class="main" :class="[webp]">
     <Navbar class="main-nav" :dark="dark" />
     <main class="main-content">
-      <Nuxt keep-alive :keep-alive-props="{ include: 'Query' }" />
+      <Nuxt keep-alive :keep-alive-props="{ include: ['Query', 'Index'] }" />
     </main>
     <Foot class="main-footer" />
     <PortalTarget name="global" />

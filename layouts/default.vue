@@ -1,8 +1,8 @@
 <template>
-  <div class="main">
+  <div class="main" :class="[webp]">
     <Navbar class="main-nav" :dark="dark" />
     <main class="main-content">
-      <Nuxt keep-alive :keep-alive-props="{include: 'Query'}" />
+      <Nuxt keep-alive :keep-alive-props="{ include: 'Query' }" />
     </main>
     <Foot class="main-footer" />
     <PortalTarget name="global" />
@@ -12,12 +12,17 @@
 <script>
 import Navbar from '@/components/layout/Navbar.vue'
 import Foot from '@/components/layout/Foot.vue'
-import PortalTarget from '@/components/portal/PortalTarget.vue';
+import PortalTarget from '@/components/portal/PortalTarget.vue'
 export default {
   components: {
     Navbar,
     Foot,
-    PortalTarget
+    PortalTarget,
+  },
+  data() {
+    return {
+      webp: this.webp = this.$store.state.supportWebp ? 'webp' : 'nowebp'
+    }
   },
   computed: {
     dark() {

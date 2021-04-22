@@ -26,12 +26,14 @@
     "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.4.0",
     "@nuxtjs/svg": "^0.1.12",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "fiber": "^1.0.4",
     "prettier": "^2.2.1",
     "sass": "^1.32.8",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "webp-loader": "^0.6.0"
   }
 }

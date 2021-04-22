@@ -1,9 +1,14 @@
 <template>
-  <div class="pgIndex" :class="{ 'pgIndex--active': backgroundActive }">
-    <div class="pgIndex-bg"></div>
-    <div class="box-xl pgIndex-wrap">
-      <LogoFull class="pgIndex-logo" />
-      <QueryForm dark />
+  <div class="pgIndex">
+    <div
+      class="pgIndex-wrapper"
+      :class="{ 'pgIndex--active': backgroundActive }"
+    >
+      <div class="pgIndex-bg"></div>
+      <div class="box-xl pgIndex-content">
+        <LogoFull class="pgIndex-logo" />
+        <QueryForm dark />
+      </div>
     </div>
   </div>
 </template>
@@ -13,6 +18,7 @@ import QueryForm from '@/components/QueryForm.vue'
 import { loadImg } from '@/assets/scripts/helpers/image.js'
 
 export default {
+  name: 'Index',
   components: {
     QueryForm,
   },
@@ -37,15 +43,15 @@ export default {
 
 <style lang="scss">
 .pgIndex {
-  margin: -20px 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-  // NOTE: can't use fadeIn as nuxt has pageTransition, fix it.
-  // transition: background-color 1s;
-  background-color: #000000;
-
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: -20px 0;
+    min-height: 100vh;
+    transition: background-color 1s;
+    background-color: #000000;
+  }
   &--active {
     background-color: transparent;
   }
@@ -62,7 +68,7 @@ export default {
     width: 100%;
     z-index: -1;
   }
-  &-wrap {
+  &-content {
     display: flex;
     flex-direction: column;
     align-items: center;

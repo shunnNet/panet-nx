@@ -31,13 +31,21 @@ export default {
     { src: '@@/plugins/vuejs-datepicker.js', mode: 'client' },
     { src: '@@/plugins/lazy.js', mode: 'client' },
     { src: '@@/plugins/svg.js' },
+    // { src: "@@/plugins/detectWebp.js", mode: "client"}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+
+  buildModules: ['@aceforth/nuxt-optimized-images'],
+
+  optimizedImages: {
+    optimizeImages: true,
+    handleImages: ['jpeg', 'png', 'webp'],
+  },
+
   serverMiddleware: [
     morgan('tiny'),
     { path: '/api', handler: '@/server/index.js' },
@@ -85,10 +93,7 @@ export default {
     },
     transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
-      // if (ctx.isClient) {
-      //   console.log();
-      //   fs.writeFileSync("./configuration.json", JSON.stringify(config))
-      // }
+      // console.log(config.plugins);
     },
   },
 }

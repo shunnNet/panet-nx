@@ -1,5 +1,5 @@
 <template>
-  <div class="pgIndex">
+  <div class="pgIndex" :class="{ 'pgIndex--active': backgroundActive }">
     <div class="pgIndex-bg"></div>
     <div class="box-xl pgIndex-wrap">
       <LogoFull class="pgIndex-logo" />
@@ -10,24 +10,49 @@
 
 <script>
 import QueryForm from '@/components/QueryForm.vue'
+import { loadImg } from '@/assets/scripts/helpers/image.js'
 
 export default {
   components: {
-    QueryForm
+    QueryForm,
+  },
+  data() {
+    return {
+      backgroundActive: false,
+    }
+  },
+  created() {
+    if (process.client) {
+      const src = this.$store.state.supportWebp
+        ? require(`@/assets/images/theater.jpg?webp`)
+        : require(`@/assets/images/theater.jpg`)
+
+      loadImg(src).then(() => {
+        this.backgroundActive = true
+      })
+    }
   },
 }
 </script>
 
 <style lang="scss">
 .pgIndex {
+  margin: -20px 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding-top: 50px;
+  // NOTE: can't use fadeIn as nuxt has pageTransition, fix it.
+  // transition: background-color 1s;
+  background-color: #000000;
+
+  &--active {
+    background-color: transparent;
+  }
+
   &-bg {
     position: fixed;
     filter: brightness(0.3);
-    background-image: url('@/assets/images/theater.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -52,6 +77,16 @@ export default {
       max-width: 390px;
       max-height: 260px;
     }
+  }
+}
+.webp {
+  .pgIndex-bg {
+    background-image: url('@/assets/images/theater.jpg?webp');
+  }
+}
+.nowebp {
+  .pgIndex-bg {
+    background-image: url('@/assets/images/theater.jpg');
   }
 }
 </style>
